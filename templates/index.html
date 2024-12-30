@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>掲示板</h2>
+
+<div id="input-container">
+    <form action="{{ url_for('home.post') }}" method="post">
+        <input type="text" name="username" value="{{ username }}" readonly class="username-input">
+        <textarea name="content" placeholder="メッセージを入力" required class="content-textarea"></textarea>
+        <button type="submit" class="submit-btn">投稿</button>
+    </form>
+</div>
+
+<ul class="post-list">
+    {% for post in posts %}
+    <li class="post-item">
+        <strong>{{ post[1] }}</strong>: {{ post[2] }}
+        <small>({{ post[3] }})</small>
+        {% if post[1] == session['username'] %}
+        <form action="{{ url_for('home.delete_post_route', post_id=post[0]) }}" method="POST"
+            onsubmit="return confirm('本当に削除しますか？');">
+            <button type="submit" class="delete-btn">削除</button>
+        </form>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

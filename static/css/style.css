@@ -1,0 +1,275 @@
+/* Navigation Bar */
+nav {
+    background-color: #333333;
+    padding: 30px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+li {
+    margin: 0 15px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Button Styling */
+.login-btn,
+.register-btn {
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background-color: #333333;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.login-btn:hover,
+.register-btn:hover {
+    background-color: #555555;
+}
+
+/* Logo */
+.logo {
+    flex-grow: 2;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.auth-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.spacer {
+    flex-grow: 1;
+}
+
+/* Input Container */
+#input-container {
+    position: fixed;
+    bottom: 0;
+    width: 97.5%;
+    background-color: rgb(255, 255, 255);
+    padding: 15px;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#input-container input {
+    font-size: 22px;
+    padding: 10px;
+    width: 20%;
+}
+
+textarea {
+    width: 75%;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+    transition: border 0.3s;
+}
+
+textarea:focus {
+    border-color: #666;
+    outline: none;
+}
+
+button {
+    width: 15%;
+    height: 50px;
+    background-color: #333333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #555555;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    #input-container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    textarea {
+        width: 100%;
+        /* スマホサイズでは全幅に広げる */
+        margin-bottom: 10px;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo {
+        font-size: 25px;
+    }
+
+    #input-container {
+        flex-direction: column;
+    }
+
+    textarea {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+/* フォーム全体のスタイル */
+.login-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* フラッシュメッセージのスタイル */
+.flash-message {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #f8d7da;
+    color: #721c24;
+    font-weight: bold;
+}
+
+/* ボタンのスタイル */
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #000;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #555;
+}
+
+/* 登録フォームのスタイル */
+.register-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* フラッシュメッセージのスタイル */
+.flash-message {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #f8d7da;
+    color: #721c24;
+    font-weight: bold;
+}
+
+/* ボタンのスタイル */
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #000;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #555;
+}

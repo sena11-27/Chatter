@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="logo"><a href="{{ url_for('home.index') }}">Chatter</a></li>
+                <li class="spacer"></li>
+                <li class="auth-links">
+                    {% if session.get('username') %}
+                    <span>ようこそ, {{ session['username'] }}!</span>
+                    <a href="{{ url_for('auth.logout') }}">ログアウト</a>
+                    {% else %}
+                    <a href="{{ url_for('auth.login') }}" class="login-btn">ログイン</a>
+                    <a href="{{ url_for('auth.register') }}" class="register-btn">登録</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Chatter</p>
+    </footer>
+</body>
+
+</html>

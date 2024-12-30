@@ -1,0 +1,4 @@
+flask
+flask-cors
+serverless
+serverless-python-requirements
