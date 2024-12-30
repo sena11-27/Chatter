@@ -7,7 +7,7 @@ CREATE TABLE posts (
     username TEXT NOT NULL,
     content TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    thread_id INTEGER -- 追加したカラム
+    thread_id INTEGER 
 );
 
 CREATE TABLE IF NOT EXISTS users (

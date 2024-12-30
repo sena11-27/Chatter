@@ -16,7 +16,7 @@
                 <li class="spacer"></li>
                 <li class="auth-links">
                     {% if session.get('username') %}
-                    <span>ようこそ, {{ session['username'] }}!</span>
+                    <span>{{ session['username'] }}! </span>
                     <a href="{{ url_for('auth.logout') }}">ログアウト</a>
                     {% else %}
                     <a href="{{ url_for('auth.login') }}" class="login-btn">ログイン</a>
