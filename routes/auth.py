@@ -32,5 +32,5 @@ def register():
 
 @auth_blueprint.route('/logout')
 def logout():
-    session.pop('username', 匿名)
+    session.pop('username', '匿名')
     return redirect(url_for('auth.login'))

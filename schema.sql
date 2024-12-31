@@ -1,5 +1,3 @@
--- schema.sql
-
 DROP TABLE IF EXISTS posts;
 
 CREATE TABLE posts (
