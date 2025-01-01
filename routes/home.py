@@ -57,4 +57,3 @@ def delete_post_route(post_id):
     if post and post['username'] == session['username']:
         delete_post(post_id) 
     return redirect(url_for('home.thread', thread_id=post['thread_id']))
-

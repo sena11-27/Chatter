@@ -1,26 +1,30 @@
-import sqlite3
+import psycopg2
+from config import Config
 
-DATABASE = 'board.db' 
+DATABASE_URI = Config.DATABASE_URI  
+
+def get_db():
+    conn = psycopg2.connect(DATABASE_URI)
+    conn.autocommit = True  
+    return conn
 
 def init_db():
     with open('schema.sql', 'r') as f:
         schema = f.read()
 
-    with sqlite3.connect(DATABASE) as conn:
-        conn.cursor().executescript(schema)
-        conn.commit() 
-
-def get_db():
-    conn = sqlite3.connect(DATABASE)
-    conn.row_factory = sqlite3.Row 
-    return conn
+    conn = get_db()
+    try:
+        cursor = conn.cursor()
+        cursor.execute(schema) 
+    finally:
+        conn.close()
 
 def execute_query(query, params=()):
     conn = get_db()
     try:
         cursor = conn.cursor()
         cursor.execute(query, params)
-        conn.commit()
+        conn.commit() 
     finally:
         conn.close()
 

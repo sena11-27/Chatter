@@ -8,7 +8,7 @@ api_blueprint = Blueprint('api', __name__)
 def api_get_posts():
     posts = get_posts()
     posts_list = [
-        {"id": post["id"], "username": post["username"], "content": post["content"], "created_at": post["created_at"]}
+        {"id": post[0], "username": post[1], "content": post[2], "created_at": post[3]}
         for post in posts
     ]
     return jsonify(posts_list)
