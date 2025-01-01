@@ -3,7 +3,6 @@ import sqlite3
 DATABASE = 'board.db' 
 
 def init_db():
-    """データベースの初期化関数"""
     with open('schema.sql', 'r') as f:
         schema = f.read()
 
