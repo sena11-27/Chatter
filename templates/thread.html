@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ thread[1] }}</h2>
+<p>{{ thread[2] }}</p>
+
+<div id="input-container">
+    <form action="{{ url_for('home.create_post_route') }}" method="post">
+        <input type="hidden" name="thread_id" value="{{ thread[0] }}"> <!-- スレッドID -->
+        <textarea name="content" placeholder="メッセージを入力" required></textarea>
+        <button type="submit" class="submit-btn">投稿</button>
+    </form>
+</div>
+
+<ul class="post-list">
+    {% for post in posts %}
+    <li class="post-item">
+        <strong>{{ post[1] }}</strong>: {{ post[2] }}
+        <small>({{ post[3] }})</small>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

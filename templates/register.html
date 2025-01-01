@@ -19,5 +19,19 @@
         <p>{{ message }}</p>
     </div>
     {% endfor %}
+    <ul class="post-list">
+        {% for post in posts %}
+        <li class="post-item">
+            <strong>{{ post[1] }}</strong>: {{ post[2] }}
+            <small>({{ post[3] }})</small>
+            {% if post[1] == username %}
+            <!-- 削除ボタン -->
+            <form action="{{ url_for('home.delete_post_route', post_id=post[0]) }}" method="post">
+                <button type="submit" class="delete-btn">削除</button>
+            </form>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
 </div>
 {% endblock %}

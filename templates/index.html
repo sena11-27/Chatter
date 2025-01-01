@@ -2,26 +2,26 @@
 {% block content %}
 <h2>掲示板</h2>
 
-<div id="input-container">
-    <form action="{{ url_for('home.post') }}" method="post">
-        <input type="text" name="username" value="{{ username }}" readonly class="username-input">
-        <textarea name="content" placeholder="メッセージを入力" required class="content-textarea"></textarea>
-        <button type="submit" class="submit-btn">投稿</button>
-    </form>
-</div>
-
-<ul class="post-list">
-    {% for post in posts %}
-    <li class="post-item">
-        <strong>{{ post[1] }}</strong>: {{ post[2] }}
-        <small>({{ post[3] }})</small>
-        {% if post[1] == session['username'] %}
-        <form action="{{ url_for('home.delete_post_route', post_id=post[0]) }}" method="POST"
-            onsubmit="return confirm('本当に削除しますか？');">
-            <button type="submit" class="delete-btn">削除</button>
-        </form>
-        {% endif %}
+<!-- スレッド一覧表示 -->
+<ul class="thread-list">
+    <li class="thread-item"><!-- thread[0] はスレッドID -->
+        <strong>タイトル : 説明 <!-- thread[1] はタイトル、thread[2] は説明 -->
+    </li>
+    {% for thread in threads %}
+    <li class="thread-item">
+        <a href="{{ url_for('home.thread', thread_id=thread[0]) }}"> <!-- thread[0] はスレッドID -->
+            <strong>{{ thread[1] }} </strong>: {{ thread[2] }} <!-- thread[1] はタイトル、thread[2] は説明 -->
+        </a>
     </li>
     {% endfor %}
 </ul>
+
+<!-- 新しいスレッド作成フォーム -->
+<div id="input-container">
+    <form action="{{ url_for('home.create_thread_route') }}" method="post">
+        <input type="text" name="title" placeholder="スレッドタイトル" required>
+        <textarea name="description" placeholder="スレッド説明" required></textarea>
+        <button type="submit" class="submit-btn">スレッドを作成</button>
+    </form>
+</div>
 {% endblock %}
