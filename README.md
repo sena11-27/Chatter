@@ -1,3 +1,5 @@
 1. 必要なパッケージをインストール:
-   ```bash
    pip install -r requirements.txt
+
+2. 実行
+   flask run
