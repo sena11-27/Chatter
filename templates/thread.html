@@ -5,7 +5,7 @@
 
 <div id="input-container">
     <form action="{{ url_for('home.create_post_route') }}" method="post">
-        <input type="hidden" name="thread_id" value="{{ thread[0] }}"> <!-- スレッドID -->
+        <input type="hidden" name="thread_id" value="{{ thread[0] }}">
         <textarea name="content" placeholder="メッセージを入力" required></textarea>
         <button type="submit" class="submit-btn">投稿</button>
     </form>

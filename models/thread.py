@@ -1,23 +1,21 @@
-from models.database import execute_query, execute_fetchall
+from models.database import get_db
 
 def create_thread(username, title, description):
-    query = "INSERT INTO threads (username, title, description) VALUES (?, ?, ?)"
-    execute_query(query, (username, title, description))
+    db = get_db()
+    db.execute("INSERT INTO threads (username, title, description) VALUES (?, ?, ?)", (username, title, description))
+    db.commit()
 
 def get_all_threads():
-    query = "SELECT * FROM threads ORDER BY created_at DESC"
-    return execute_fetchall(query)
+    db = get_db()
+    return db.execute("SELECT * FROM threads ORDER BY created_at DESC").fetchall()
 
 def get_thread_by_id(thread_id):
-    query = "SELECT * FROM threads WHERE id = ?"
-    result = execute_fetchall(query, (thread_id,))
+    db = get_db()
+    result = db.execute("SELECT * FROM threads WHERE id = ?", (thread_id,)).fetchall()
     if result:
-        return result[0]  # 1件だけ取得
+        return result[0]
     return None
 
-
 def get_posts_for_thread(thread_id):
-    query = "SELECT * FROM posts WHERE thread_id = ? ORDER BY created_at DESC"
-    return execute_fetchall(query, (thread_id,))
-
-
+    db = get_db()
+    return db.execute("SELECT * FROM posts WHERE thread_id = ? ORDER BY created_at DESC", (thread_id,)).fetchall()

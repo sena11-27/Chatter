@@ -4,7 +4,6 @@ from models.user import get_user_by_username
 
 api_blueprint = Blueprint('api', __name__)
 
-# 投稿の取得
 @api_blueprint.route('/api/posts', methods=['GET'])
 def api_get_posts():
     posts = get_posts()
@@ -14,7 +13,6 @@ def api_get_posts():
     ]
     return jsonify(posts_list)
 
-# 投稿の作成
 @api_blueprint.route('/api/posts', methods=['POST'])
 def api_create_post():
     data = request.get_json()
@@ -27,7 +25,6 @@ def api_create_post():
     create_post(username, content)
     return jsonify({"message": "Post created successfully"}), 201
 
-# 投稿の削除
 @api_blueprint.route('/api/posts/<int:post_id>', methods=['DELETE'])
 def api_delete_post(post_id):
     delete_post(post_id)

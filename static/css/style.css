@@ -118,7 +118,6 @@ button:hover {
 
     textarea {
         width: 100%;
-        /* スマホサイズでは全幅に広げる */
         margin-bottom: 10px;
     }
 
@@ -269,10 +268,11 @@ button:hover {
 ul.thread-list {
     list-style: none;
     padding: 0;
-    margin: 20px auto;
     width: 80%;
     display: flex;
     flex-direction: column;
+    text-align: left;
+
 }
 
 li.thread-item {
@@ -305,8 +305,10 @@ ul.post-list {
     padding: 0;
     display: flex;
     flex-direction: column;
+    text-align: left;
 }
 
 li.post-item {
     color: #333;
+    text-align: left;
 }

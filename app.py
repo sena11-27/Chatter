@@ -8,10 +8,8 @@ from flask_cors import CORS
 app = Flask(__name__)
 app.secret_key = 'your_secret_key_here'
 
-# 初期化時にDBをセットアップ
 init_db()
 CORS(app)
-# ルーティング設定
 app.register_blueprint(home_blueprint)
 app.register_blueprint(auth_blueprint)
 app.register_blueprint(api_blueprint)
