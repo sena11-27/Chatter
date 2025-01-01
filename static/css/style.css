@@ -312,3 +312,16 @@ li.post-item {
     color: #333;
     text-align: left;
 }
+
+.delete-btn {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: none;
+    padding: 1px 1px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.delete-btn:hover {
+    background-color: darkred;
+}

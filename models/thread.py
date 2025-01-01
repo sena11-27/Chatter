@@ -19,3 +19,9 @@ def get_thread_by_id(thread_id):
 def get_posts_for_thread(thread_id):
     db = get_db()
     return db.execute("SELECT * FROM posts WHERE thread_id = ? ORDER BY created_at DESC", (thread_id,)).fetchall()
+
+def delete_thread(thread_id):
+    db = get_db()
+    db.execute("DELETE FROM threads WHERE id = ?", (thread_id,))
+    db.commit()
+

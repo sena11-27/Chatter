@@ -13,3 +13,13 @@ def delete_post(post_id):
     db = get_db()
     db.execute('DELETE FROM posts WHERE id = ?', (post_id,))
     db.commit()
+
+def get_post_by_id(post_id):
+    db = get_db()
+    result = db.execute('SELECT * FROM posts WHERE id = ?', (post_id,)).fetchall()
+    if result:
+        return result[0]
+    return None
+
+
+

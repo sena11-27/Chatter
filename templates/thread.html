@@ -16,6 +16,13 @@
     <li class="post-item">
         <strong>{{ post[1] }}</strong>: {{ post[2] }}
         <small>({{ post[3] }})</small>
+
+        <!-- 投稿削除ボタン -->
+        {% if username == post[1] %}
+        <form action="{{ url_for('home.delete_post_route', post_id=post[0]) }}" method="POST">
+            <button type="submit" class="delete-btn">削除</button>
+        </form>
+        {% endif %}
     </li>
     {% endfor %}
 </ul>

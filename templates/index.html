@@ -8,6 +8,14 @@
         <a href="{{ url_for('home.thread', thread_id=thread[0]) }}">
             <strong>{{ thread[1] }} </strong>: {{ thread[2] }}
         </a>
+
+        {% if username == thread[3] %}
+        <form action="{{ url_for('home.delete_thread_route', thread_id=thread[0]) }}" method="POST">
+            <button type="submit" class="delete-btn">スレッドを削除</button>
+        </form>
+        {% else %}
+        <p>作成したアカウントでのみ削除できます</p>
+        {% endif %}
     </li>
     {% endfor %}
 </ul>
